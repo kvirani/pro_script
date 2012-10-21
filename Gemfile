@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'chosen-rails'
@@ -41,6 +41,7 @@ gem 'unicorn'
 # gem 'debugger'
 
 group :development do
+  gem 'sqlite3'
   gem 'thin'
   gem 'letter_opener'
   gem 'pry-rails'
