@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  emr_number: MyString
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: MyString
+  phone_number: MyString
+  family_doctor_cpso: MyString
+
+two:
+  emr_number: MyString
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: MyString
+  phone_number: MyString
+  family_doctor_cpso: MyString

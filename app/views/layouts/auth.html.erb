@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application" %>
+    <%= yield :head  %>
+  </head>
+
+  <body class="auth">
+
+    <div class="container">
+      <div class="content">
+
+        <br/>
+        <br/><br/>
+        <div class="row">
+          <div class="span4 offset4" style="text-align:center">
+            <%= image_tag 'logo.png' %>
+            <hr/>
+            <%= render 'shared/flash', :flash => flash %>
+          </div>
+        </div>
+
+        <%= yield %>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+
+    <%= yield :end_of_body %>
+
+  </body>
+</html>

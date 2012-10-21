@@ -1,0 +1,11 @@
+<center>
+  <%= image_tag 'logo.png' %>
+<hr/>
+  <%= form_tag '#', :class => 'form-search' do %>
+    <div class="input-append">
+      <%= text_field_tag 'q', params[:q], :class => 'span4 search-query', :placeholder => 'Enter Patient EMR #' %>
+      <button type="submit" class="btn">Find</button>
+    </div>
+  <% end %>
+
+</center>

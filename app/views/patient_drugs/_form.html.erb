@@ -1,0 +1,32 @@
+<div class="row-fluid">
+  <div class="span4">
+    <%= f.association :drug %>
+  </div>
+  <div class="span4">
+    <%= f.input :strength, :input_html => {:class => "span4"} %>
+  </div>
+  <div class="span4">
+    <%= f.input :method_of_administration, :collection => Drug::Administrations %>
+  </div>
+</div>
+
+<hr/>
+<h4>Doses</h4>
+
+<div class="row-fluid">
+  <div class="span3">
+    <%= f.input :breakfast_dose, :input_html => {:class => 'span5'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :lunch_dose, :input_html => {:class => 'span5'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :supper_dose, :input_html => {:class => 'span5'} %>
+  </div>
+  <div class="span3">
+    <%= f.input :bedtime_dose, :input_html => {:class => 'span5'} %>
+  </div>
+</div>
+
+<hr/>
+<%= f.input :reason, :as => :text, :input_html => {:rows => 3, :class => "span8"} %>

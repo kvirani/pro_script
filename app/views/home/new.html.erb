@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="span4 offset4">
+    <div class="well auth-box">
+      <legend>Welcome Back!</legend>
+      <p>Log in below ...</p>
+
+      <%= form_tag 'start', :method => 'get', :class => "form-horizontal", :style => "margin-bottom: 2px" do |f| %>
+
+        <%= f.text_field :login, :placeholder => "Username" %>
+        <%= f.password_field :password, :placeholder => "Password" %>
+
+        <div style="margin-top:10px; margin-bottom: 10px;" class="clearfix">
+
+          <div class="pull-right">
+            <%= f.submit('Login', :class => 'btn btn-warning btn-large', :disable_with => "Wait ...") %>
+          </div>
+
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for :end_of_body do %>
+  <script type="text/javascript">
+    $(function () {
+      var l = $('#user_login');
+      if (l.val() == "") {
+        l.focus().select();
+      } else {
+        var d = $('#user_password');
+        //d.val('');
+        d.focus().select();
+      }
+    });
+  </script>
+
+<% end %>

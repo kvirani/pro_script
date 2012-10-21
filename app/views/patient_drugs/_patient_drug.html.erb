@@ -1,0 +1,52 @@
+<tr>
+  <td>
+    <%= patient_drug.drug.try(:name) || "N/A" %>
+    <% if patient_drug.strength? %>
+     <small>(<%= patient_drug.strength%>)</small>
+    <% end %>
+    <% if patient_drug.method_of_administration? %>
+      [<%= patient_drug.method_of_administration %>]
+    <% end %>
+    <% if patient_drug.discontinued_at? %>
+      <span class="label label-important">Discontinued</span>
+    <% end %>
+  </td>
+  <td>
+    <%= patient_drug.breakfast_dose %>
+  </td>
+  <td>
+    <%= patient_drug.lunch_dose %>
+  </td>
+  <td>
+    <%= patient_drug.supper_dose %>
+  </td>
+  <td>
+    <%= patient_drug.bedtime_dose %>
+  </td>
+  <td>
+    <%= patient_drug.reason %>
+  </td>
+  <td>
+    <%= link_to 'Edit', "#edit-drug-#{patient_drug.id}-modal", :class => 'btn btn-mini btn-info', :disabled => patient_drug.discontinued_at?, :data => {:toggle => 'modal'} %>
+    <%= link_to 'Discontinue', [:discontinue, @patient, patient_drug], :confirm => "Are you sure?", :class => 'btn btn-mini btn-warning', :method => 'put', :disabled => patient_drug.discontinued_at? %>
+    <%= link_to 'X', [@patient, patient_drug], :confirm => "Remove This Drug? This cannot be undone!", :class => 'btn btn-mini btn-danger', :method => :delete %>
+  </td>
+</tr>
+
+<% content_for :end_of_body do %>
+  <div class="drug-modal modal hide fade" id="edit-drug-<%= patient_drug.id %>-modal">
+    <%= simple_form_for [@patient, patient_drug], :html => {:style => "margin-bottom: 0px;"} do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Change Drug</h3>
+      </div>
+      <div class="modal-body">
+        <%= render 'patient_drugs/form', :f => f %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Save Changes', :class => 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>

@@ -1,0 +1,10 @@
+<% provide :page_name, "Create New Patient Record" %>
+
+
+<%= simple_form_for @patient do |f| %>
+
+  <%= render f %>
+  <%= f.submit 'Create', :class => 'btn btn-primary btn-large'  %>
+
+<% end %>
+

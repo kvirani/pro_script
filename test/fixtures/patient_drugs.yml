@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  breakfast_dose: MyString
+  lunch_dose: MyString
+  supper_dose: MyString
+  bedtime_dose: MyString
+  reason: MyString
+
+two:
+  breakfast_dose: MyString
+  lunch_dose: MyString
+  supper_dose: MyString
+  bedtime_dose: MyString
+  reason: MyString

@@ -1,0 +1,47 @@
+<% provide :page_name, "Patient Record \# #{@patient.emr_number}" %>
+
+<%= simple_form_for @patient do |f| %>
+  <%= render f, :disabled => true %>
+<% end %>
+
+<%= link_to 'Edit Patient Record', [:edit, @patient], :class => 'btn' %>
+
+<hr/>
+
+<h3>Drugs</h3>
+
+<%= link_to 'Add Drug', '#new-drug-modal', :data => {:toggle => 'modal'}, :class => 'btn' %>
+<hr/>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Medication</th>
+    <th>Breakfast</th>
+    <th>Lunch</th>
+    <th>Supper</th>
+    <th>Bedtime</th>
+    <th>Reason</th>
+    <th>&nbsp;</th>
+  </tr>
+
+  <%= render @patient_drugs %>
+
+</table>
+
+
+<% content_for :end_of_body do %>
+  <div class="drug-modal modal hide fade" id="new-drug-modal">
+    <%= simple_form_for [@patient, PatientDrug.new], :html => {:style => "margin-bottom: 0px;"} do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>New Drug</h3>
+      </div>
+      <div class="modal-body">
+        <%= render 'patient_drugs/form', :f => f %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Add Drug', :class => 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

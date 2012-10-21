@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MedicationReconciliation</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <style>
+    body {
+      padding-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner" style="padding: 0px 26px;">
+    <a class="brand" href="#">PRO SCRIPT</a>
+    <ul class="nav">
+      <li class="<%= 'active' if @on_search %>">
+        <a href="/start">Search</a>
+      </li>
+    </ul>
+    <div class="pull-right">
+      <%= link_to 'Logout', :root, :class => 'btn btn-danger' %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+
+  <% page_name = yield :page_name %>
+  <% if page_name.present? %>
+    <% page_desc = yield :page_desc %>
+    <div class="page-header clearfix" style="padding-bottom:5px; margin-bottom: 0px;">
+      <div class="pull-right" style="margin-top: 12px;">
+        <%= yield :actions %>
+      </div>
+      <div class="pull-left">
+        <h1>
+          <span class="page-title"><%= page_name %></span>
+          <small><%= page_desc %></small>
+        </h1>
+      </div>
+    </div>
+  <% end %>
+
+  <br/>
+  <%= render 'shared/flash', :flash => flash %>
+
+  <br/>
+  <%= yield %>
+
+  <%= yield :end_of_body %>
+</div>
+</body>
+</html>

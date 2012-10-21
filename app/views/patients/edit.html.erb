@@ -1,0 +1,12 @@
+<% provide :page_name, "Patient Record \# #{@patient.emr_number}" %>
+<% content_for :actions do %>
+  <%= link_to 'Restart Search', :start, :class => 'btn btn-info btn-large' %>
+<% end %>
+
+<%= simple_form_for @patient do |f| %>
+
+  <%= render f %>
+  <%= f.submit 'Update', :class => 'btn btn-primary btn-large'  %>
+
+<% end %>
+
