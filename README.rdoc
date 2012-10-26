@@ -1,6 +1,7 @@
 == Pro Script
 
-Community Medication Reconciliation Project.
+A weekend Community Medication Reconciliation Project built for Hacking Health:
+http://hackinghealth.ca/events/toronto
 
 Online app to create and manage best available patient medication profiles for Mount Forest.
 
